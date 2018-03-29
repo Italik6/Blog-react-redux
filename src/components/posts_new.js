@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
 
 class PostsNew extends Component {
-
-    render() {
+    renderTitleField(field) {
         return (
             <div>
-               
+                <input
+                    type="text"
+                    {...field.input}
+                />
             </div>
-        )
-    };
+        );
+    }
+
+    render () {
+        return (
+            <form>
+                <Field
+                    name="title"
+                    component={this.renderTitleField}
+                />
+            </form>
+        );
+    }
 }
 
-function mapStateToProps(state) {
-    return { posts: state.posts };
-}
-
-export default connect(mapStateToProps) (PostsNew);
+export default reduxForm({
+    form: 'PostsNewForm'
+}) (PostsNew);
