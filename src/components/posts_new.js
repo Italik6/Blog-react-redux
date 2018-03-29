@@ -16,4 +16,4 @@ function mapStateToProps(state) {
     return { posts: state.posts };
 }
 
-export default connect(mapStateToProps, { fetchPosts }) (PostsNew);
+export default connect(mapStateToProps) (PostsNew);
