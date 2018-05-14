@@ -16,6 +16,7 @@ class PostsIndex extends Component {
                     <Link to={`/posts/${post.id}`}>
                         {post.title}
                     </Link>
+                    <span className="badge label label-info">{post.categories}</span>
                 </li>
             )
         });
@@ -25,11 +26,11 @@ class PostsIndex extends Component {
         return (
             <div>
                 <div className="text-xs-right">
-                    <Link to="/posts/new" className="btn btn-primary">
-                        Add a Posts
+                    <Link to="/posts/new" className="btn btn-success">
+                        New Post
                     </Link>
                 </div>
-                <h3>Posts</h3>
+                <h3>Your Posts</h3>
                 <ul className="list-group">
                     {this.renderPosts()}
                 </ul>
@@ -40,6 +41,6 @@ class PostsIndex extends Component {
 
 function mapStateToProps(state) {
     return { posts: state.posts };
-}
+};
 
 export default connect(mapStateToProps, { fetchPosts }) (PostsIndex);

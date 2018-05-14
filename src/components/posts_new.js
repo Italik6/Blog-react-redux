@@ -32,6 +32,7 @@ class PostsNew extends Component {
 
     render () {
         const { handleSubmit } = this.props;
+        
         return (
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <Field
@@ -61,7 +62,7 @@ class PostsNew extends Component {
 function validate(values) {
     const errors = {};
 
-    if (!values.title || values.title.length < 4) {
+    if (!values.title || values.title.length < 3) {
         errors.title = "Enter a title that is at least 3 characters!";
     }
     if (!values.categories) {
@@ -76,6 +77,4 @@ function validate(values) {
 export default reduxForm({
     validate,
     form: 'PostsNewForm'
-})(
-   connect(null, { createPost }) (PostsNew)
-);
+})( connect(null, { createPost }) (PostsNew) );
