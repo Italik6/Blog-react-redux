@@ -23,21 +23,25 @@ class PostsShow extends Component {
         const { post } = this.props;
 // Check if we already have a post
         if (!post) {
-            return <div>Loading...</div>;
+            return <div className="center-content"><div className="loading"><span>L</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span><span>.</span><span>.</span><span>.</span></div></div>;
         }
 
         return (
             <div>
-                <Link to="/">Back to Index</Link>
-                <button
-                    className="btn btn-danger pull-xs-right"
-                    onClick={this.onDeleteClick.bind(this)}
-                >
-                    Delete
-                </button>
-                <h3>{post.title}</h3>
-                <h6>Categories: {post.categories}</h6>
-                <p>{post.content}</p>
+                <div className="row m-t-2">
+                    <h3>{post.title}</h3>
+                    <span className="m-b-2 label label-info">{post.categories}</span>
+                    <p>{post.content}</p>
+                </div>
+                <div className="row m-t-2">
+                    <button
+                        className="btn btn-danger"
+                        onClick={this.onDeleteClick.bind(this)}
+                    >
+                        Delete
+                    </button>
+                    <Link className="m-t-1 link-back" to="/">All Posts</Link>
+                </div>
             </div>
         );
     }
