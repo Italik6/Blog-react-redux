@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../actions';
+import Loader from '../components/loader';
 import { Link } from 'react-router-dom';
 
 class PostsShow extends Component {
@@ -21,9 +22,9 @@ class PostsShow extends Component {
 
     render() {
         const { post } = this.props;
-// Check if we already have a post
+    // Check if we already have a post
         if (!post) {
-            return <div className="center-content"><div className="loading"><span>L</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span><span>.</span><span>.</span><span>.</span></div></div>;
+            return <Loader />;
         }
 
         return (
