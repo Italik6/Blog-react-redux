@@ -22,7 +22,7 @@ class PostsShow extends Component {
 
     render() {
         const { post } = this.props;
-    // Check if we already have a post
+        // Check if we already have a post
         if (!post) {
             return <Loader />;
         }
